@@ -6,12 +6,20 @@ export class ContactForm extends Component {
     name: '',
     number: '',
   };
+
   handleSubmit = e => {
     e.preventDefault();
     this.props.onSubmit(
       e.target.elements.name.value,
       e.target.elements.number.value
     );
+    this.reset();
+  };
+  reset = () => {
+    this.setState({
+      name: '',
+      number: '',
+    });
   };
 
   render() {
